@@ -1,13 +1,15 @@
-console.log("Extension script initiated");
-const allInputs = document.querySelectorAll("input");
-allInputs.forEach(fillInput);
+document.addEventListener("DOMContentLoaded", function () {
+  // Get button by ID
+  const generateBtn = document.querySelector(".Generate__btn");
+  generateBtn.onclick = injectscript;
+});
 
-function fillInput(input) {
-  if (input.type == "text") input.value = "test text";
-  else if (input.type == "email") input.value = "email@example.com";
-  else if (input.type == "password") input.value = "pass1234";
-  else if (input.type == "checkbox") input.checked = "true";
-
-  // console.log(input, input.checked);
-  // console.log(input, input.value);
+async function injectscript() {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  await chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    files: ["inject.js"],
+  });
+  //   window.close();
+  console.log("hey there ");
 }

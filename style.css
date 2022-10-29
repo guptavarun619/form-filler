@@ -2,5 +2,11 @@ body {
     background-color: aqua;
 }
 h1 {
-    color: blue;
+    color: green;
+}
+#popup__wrapper{
+    border:2px solid orange;
+}
+button {
+    color : red;
 }
