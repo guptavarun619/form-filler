@@ -1,10 +1,12 @@
-#popupwrapper {
-    width:"1000px";
-    color:"red";
+body {
+    background-color: aqua;
 }
-#Generate__btn {
-    border:"2px solid red";
+h1 {
+    color: green;
 }
-body{
-    border:"2px solid red";
+#popup__wrapper{
+    border:2px solid orange;
+}
+button {
+    color : red;
 }
