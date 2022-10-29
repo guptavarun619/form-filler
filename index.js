@@ -1,3 +1,4 @@
+console.log("Extension script initiated");
 const allInputs = document.querySelectorAll("input");
 allInputs.forEach(fillInput);
 
