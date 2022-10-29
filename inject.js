@@ -6,10 +6,9 @@ function wrapper() {
             There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...`;
   }
   function select(el) {
-    if (el.value !== "") {
-      el.value = el.firstChild.innerText;
-    } else if (el.value === "") {
-      el.value = 1;
+    el.value = 1;
+    if (el.value == "") {
+      el.value = el.firstChild.innerHTML;
     }
   }
   if (document.querySelector("select")) {
