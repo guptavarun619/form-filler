@@ -1,10 +1,17 @@
 {
-    "name":"Form-filler",
-    "description":"Automatic form filler for front-end developers",
-    "version":"0.0.1",
-    "manifest_version": 3 ,
-    "background.service_worker": { "scripts": ["hot-reloading.js"] },
-    "action":{
-        "default_popup":"popup.html"
+  "name": "Form-filler",
+  "description": "Automatic form filler for front-end developers",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "background.service_worker": { "scripts": ["hot-reloading.js"] },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"], 
+      "css" : ["style.css"]
     }
+    ]
 }
