@@ -17,10 +17,12 @@ function wrapper() {
   }
   // for select tag
   function select(el) {
+
     if (getFirstChild(el).innerText === getFirstChild(el).value) {
       el.value = getFirstChild(el).value;
     } else {
       el.value = getFirstChild(el).value;
+
     }
   }
   //runs only if below mentioned tags are detected
