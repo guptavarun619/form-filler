@@ -1,25 +1,41 @@
 function wrapper() {
   const allTextArea = document.querySelectorAll("textarea");
-  const allSelectTags = document.querySelectorAll("select" || "datalist");
+  const allSelectTags = document.querySelectorAll("select");
+
   function Textarea(el) {
     el.value = `lNeque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
             There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...`;
   }
+
+  function getFirstChild(el) {
+    var firstChild = el.firstChild;
+    while (firstChild != null && firstChild.nodeType == 3) {
+      // skip TextNodes
+      firstChild = firstChild.nextSibling;
+    }
+    if (firstChild) return firstChild;
+  }
+  // for select tag
   function select(el) {
-    el.value = 1;
-    if (el.value == "") {
-      el.value = el.firstChild.innerHTML;
+
+    if (getFirstChild(el).innerText === getFirstChild(el).value) {
+      el.value = getFirstChild(el).value;
+    } else {
+      el.value = getFirstChild(el).value;
+
     }
   }
+  //runs only if below mentioned tags are detected
   if (document.querySelector("select")) {
     allSelectTags?.forEach(select);
   }
+
   if (document.querySelector("textarea")) {
     allTextArea.forEach(Textarea);
   }
 
   let allInputs = document.querySelectorAll("input");
-
+  // executes on the first injection
   allInputs?.forEach(fillInput);
 
   function fillInput(input) {
